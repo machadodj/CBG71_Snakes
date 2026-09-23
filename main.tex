@@ -1,0 +1,233 @@
+%% Poster Genetica 2026 (71o Congresso Brasileiro de Genetica)
+%% Trabalho #244, Genetica Evolutiva. Apresentacao: 30/09/2026, 17h00 a 19h00.
+%% Regras do evento: 100 x 100 cm, design livre, logo do evento obrigatorio,
+%% ingles ou portugues, o apresentador deve ser o primeiro autor.
+%% Overleaf: Compiler = LuaLaTeX (o latexmkrc ja define isso). Se uma coluna passar da altura, o log
+%% avisa com "Overfull \vbox".
+
+\documentclass{article}
+\usepackage[paperwidth=100cm,paperheight=100cm,margin=0cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Heros}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{fontawesome5}
+\graphicspath{{figures/}{logos/}}
+\pagestyle{empty}
+\pagecolor{white}
+\setlength{\parindent}{0pt}
+\setlength{\JustifyingParindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ---- cores: roxo e azul-marinho do logo do evento (diferente do poster verde
+% do Hepatozoon); cores das especies iguais as das figuras
+\definecolor{tema}{HTML}{7B297E}
+\definecolor{marinho}{HTML}{262254}
+\definecolor{fundo}{HTML}{F3E8F4}
+\definecolor{texto}{HTML}{1F1F1F}
+\definecolor{alcatraz}{HTML}{F21A00}
+\definecolor{insularis}{HTML}{1BAF7A}
+\definecolor{sazimai}{HTML}{3B9AB2}
+\definecolor{jararaca}{HTML}{EDA10F}
+
+% ---- tamanhos (pt impressos)
+\newcommand{\corpo}{\fontsize{24}{30}\selectfont}
+\newcommand{\legenda}{\fontsize{22}{26}\selectfont}
+\newcommand{\rodape}{\fontsize{21}{25}\selectfont}
+
+% ---- nomes
+\newcommand{\Bot}{\textit{Bothrops}}
+\newcommand{\Bjar}{\textit{B.~jararaca}}
+\newcommand{\Balc}{\textit{B.~alcatraz}}
+\newcommand{\Bins}{\textit{B.~insularis}}
+\newcommand{\Bsaz}{\textit{B.~sazimai}}
+
+% ---- grade (cm)
+% Pagina 100 x 100 cm, margens de 2 cm, duas colunas de 47 cm e vao de 2 cm.
+% Colunas com altura fixa entre o fio do cabecalho e o fio do rodape; a sobra
+% e distribuida entre as secoes, e as duas colunas terminam na mesma linha.
+\newlength{\margem}\setlength{\margem}{2cm}
+\newlength{\coluna}\setlength{\coluna}{47cm}
+\newlength{\vao}\setlength{\vao}{2cm}
+\newcommand{\fiorodape}{94.8}
+\newcommand{\altlogo}{3.4cm}        % altura comum dos logos das afiliacoes
+\newcommand{\altlogorodape}{2.6cm}
+
+% ---- secoes
+\newcommand{\secaotopo}[1]{%
+  {\fontsize{40}{46}\selectfont\bfseries\color{tema}#1\par}%
+  \vspace{0.1cm}{\color{tema}\rule{\linewidth}{3pt}}\par\vspace{0.35cm}}
+\newcommand{\secao}[1]{%
+  \par\vspace{0.5cm plus 1fil}%
+  {\fontsize{40}{46}\selectfont\bfseries\color{tema}#1\par}%
+  \vspace{0.1cm}{\color{tema}\rule{\linewidth}{3pt}}\par\vspace{0.35cm}}
+\newcommand{\subsecaotopo}[1]{%
+  {\fontsize{30}{36}\selectfont\bfseries\color{marinho}#1\par}\vspace{0.25cm}}
+\newcommand{\subsecao}[1]{%
+  \par\vspace{0.4cm plus 1fil}{\fontsize{30}{36}\selectfont\bfseries\color{marinho}#1\par}\vspace{0.25cm}}
+
+% ---- figura com legenda, na largura total do bloco: #1 arquivo, #2 legenda
+\newcommand{\figura}[2]{%
+  \par\vspace{0.35cm plus 0.5fil}%
+  \includegraphics[width=\linewidth]{#1}\par
+  \vspace{0.3cm}{\legenda\RaggedRight #2\par}}
+
+% ---- foto com letra do painel, nome da especie e credito sobre a imagem
+% #1 largura, #2 arquivo, #3 letra, #4 cor, #5 especie, #6 credito
+\newcommand{\foto}[6]{%
+  \begin{tikzpicture}
+    \node[inner sep=0] (f) {\includegraphics[width=#1]{#2}};
+    \node[anchor=north west, fill=black, fill opacity=0.6, text opacity=1,
+          text=white, inner sep=6pt, font=\fontsize{30}{30}\selectfont\bfseries]
+      at (f.north west) {#3};
+    \node[anchor=south west, fill=white, fill opacity=0.85, text opacity=1,
+          text=#4, inner sep=5pt, font=\fontsize{24}{24}\selectfont\bfseries\itshape]
+      at (f.south west) {#5};
+    \node[anchor=south east, fill=black, fill opacity=0.55, text opacity=1,
+          text=white, inner sep=5pt, font=\fontsize{18}{18}\selectfont]
+      at (f.south east) {#6};
+  \end{tikzpicture}}
+
+\setlist[itemize]{leftmargin=1.1em,itemsep=0.3cm,topsep=0.1cm,parsep=0pt,
+  label={\color{tema}\textbullet}}
+
+% =====================================================================
+%  CABECALHO (medido para posicionar o fio superior logo abaixo)
+% =====================================================================
+\newsavebox{\cabecalho}
+\sbox{\cabecalho}{\begin{minipage}[t]{66cm}\RaggedRight\color{texto}
+{\fontsize{54}{62}\selectfont\bfseries\color{tema}
+ Evolution of the repeatome and satellitome in three endangered insular species of the genus \Bot{} (Squamata: Serpentes: Viperidae)\par}
+\vspace{0.7cm}
+{\fontsize{34}{40}\selectfont
+ \textbf{Salles-Oliveira, I.}\textsuperscript{1,3,*}, Pessoa, G.\,P.\textsuperscript{1,4}, Omura, G.\,Y.\,S.\textsuperscript{5}, Jacob Machado, D.\textsuperscript{5,6,*}, Nishiyama-Júnior, M.\,Y.\textsuperscript{2}, Silva, M.\,J.\,J.\textsuperscript{1,3}\par}
+\vspace{0.45cm}
+{\fontsize{24}{29}\selectfont
+ \textsuperscript{1}Laboratório de Ecologia e Evolução, Instituto Butantan, São Paulo, Brazil.
+ \textsuperscript{2}Laboratório de Toxinologia Aplicada, Instituto Butantan, São Paulo, Brazil.
+ \textsuperscript{3}Instituto de Biociências, Universidade de São Paulo, São Paulo, Brazil.
+ \textsuperscript{4}Instituto de Ciências Biomédicas, Universidade de São Paulo, São Paulo, Brazil.
+ \textsuperscript{5}Department of Bioinformatics and Genomics, University of North Carolina at Charlotte, Charlotte, NC, USA.
+ \textsuperscript{6}Center for Computational Intelligence for Predicting Health and Environmental Risks (CIPHER), University of North Carolina at Charlotte, Charlotte, NC, USA.\par}
+\vspace{0.35cm}
+{\fontsize{26}{31}\selectfont\color{marinho}
+ \textsuperscript{*}{\color{tema}\faEnvelope[regular]}~Contact: igor.oliveira.esib@esib.butantan.gov.br and dmachado@charlotte.edu\hspace{1.5cm}{\color{tema}\faGlobe}~phyloinformatics.com\par}
+\end{minipage}}
+\newsavebox{\logoevento}
+\sbox{\logoevento}{\includegraphics[width=26cm]{Genetica.pdf}}
+% fio superior: 0,8 cm abaixo do que terminar mais baixo, o texto ou os logos
+\newlength{\fimtexto}\setlength{\fimtexto}{\dimexpr 2cm+\ht\cabecalho+\dp\cabecalho\relax}
+\newlength{\fimlogos}\setlength{\fimlogos}{\dimexpr 2cm+\ht\logoevento+0.8cm+\altlogo\relax}
+\newlength{\fiotopo}
+\ifdim\fimtexto>\fimlogos \setlength{\fiotopo}{\dimexpr\fimtexto+0.8cm\relax}
+\else \setlength{\fiotopo}{\dimexpr\fimlogos+0.8cm\relax}\fi
+\newlength{\altcoluna}\setlength{\altcoluna}{\dimexpr \fiorodape cm-\fiotopo-2cm\relax}
+
+% =====================================================================
+%  COLUNA ESQUERDA
+% =====================================================================
+% alturas iguais para as tres fotos: larguras proporcionais as razoes de aspecto
+% (3840x2508, 2700x1426, 1152x768), somando 47 cm com dois vaos de 0,5 cm
+\newlength{\altfoto}\setlength{\altfoto}{9.34cm}
+
+\newsavebox{\colesq}
+\sbox{\colesq}{\begin{minipage}[t]{\coluna}\vbox to\altcoluna{\corpo\justifying\color{texto}
+\secaotopo{Introduction}
+Island populations are small and isolated, so drift and selection can reshape their genomes quickly. Repetitive DNA changes faster than most of the genome: transposable elements (TEs) copy themselves to new sites, and satellite DNA arrays expand and contract. The \Bot{} \textit{jararaca} group is a natural test. The widespread mainland species \Bjar{} has close relatives on continental islands off southeastern Brazil (Fig.~1), cut off by rising sea levels within the last 11,000 to 55,000 years\textsuperscript{2}. \Bins{} is Critically Endangered and \Balc{} is Vulnerable\textsuperscript{3}, and the describers of \Bsaz{} proposed it as Critically Endangered\textsuperscript{1}.
+
+\vspace{0.5cm}
+\foto{\dimexpr 1.531\altfoto\relax}{Bothrops_alcatraz.jpg}{A}{alcatraz}{B. alcatraz}{Otavio A. Marques, CC BY 4.0}\hfill
+\foto{\dimexpr 1.893\altfoto\relax}{Bothrops_insularis.jpg}{B}{insularis}{B. insularis}{Igor Salles-Oliveira}\hfill
+\foto{\dimexpr 1.5\altfoto\relax}{Bothrops_sazimai.jpg}{C}{sazimai}{B. sazimai}{Ricardo Sawaya}\par
+\vspace{0.3cm}{\legenda\RaggedRight \textbf{Figure 1.} The three island species sequenced in this study. A: \Balc{}, Ilha de Alcatrazes, São Paulo (photo: Otavio A. Marques, CC BY 4.0). B: \Bins{}, Ilha da Queimada Grande, São Paulo (photo: Igor Salles-Oliveira). C: \Bsaz{}, Ilha dos Franceses, Espírito Santo (photo: Ricardo Sawaya).\par}
+
+\vspace{0.7cm}
+\colorbox{fundo}{\begin{minipage}{\dimexpr\linewidth-2\fboxsep\relax}\justifying
+\vspace{0.3cm}{\bfseries\color{tema}Objective.} Assemble the first genomes of three island endemics (\Balc{}, \Bins{}, and \Bsaz{}) and compare their transposable elements and satellite DNA with those of the mainland \Bjar{}.\vspace{0.3cm}
+\end{minipage}}
+
+\secao{Methods}
+We sequenced blood DNA from one adult female of each island species, all kept at Instituto Butantan, on an Oxford Nanopore PromethION. We assembled and scaffolded each genome, then ran it and the published \Bjar{} genome\textsuperscript{4} through one annotation pipeline (Fig.~2). EarlGrey annotated the TEs, and TRASH annotated satellite DNA with monomers of 50 to 1,000\,bp.
+\figura{Figura_02.pdf}{\textbf{Figure 2.} Workflow: genome assembly (top), then annotation of transposable elements and satellite DNA in all four genomes (bottom). Created in BioRender (BioRender.com).}
+
+\secao{Results}
+\subsecaotopo{Three new genomes, half made of repeats}
+The three assemblies span 1.63 to 1.64\,Gbp, with scaffold N50 of 20.9 to 31.3\,Mbp and BUSCO completeness near 96\%. They are far more contiguous than the published \Bjar{} genome (N50 0.16\,Mbp). Repeats cover 48.6 to 50.0\% of each genome, and LINEs alone cover 23 to 24\%. The four repeat profiles are nearly identical (Fig.~3).
+\figura{Figure_03.pdf}{\textbf{Figure 3.} Repeat content of each genome by class. Numbers inside the bars give the percentage of the genome. Other repeats: Penelope, rolling-circle (RC), and other elements.}
+\par\vskip0pt
+}\end{minipage}}
+
+% =====================================================================
+%  COLUNA DIREITA
+% =====================================================================
+\newsavebox{\coldir}
+\sbox{\coldir}{\begin{minipage}[t]{\coluna}\vbox to\altcoluna{\corpo\justifying\color{texto}
+\subsecaotopo{Every TE burst predates the islands}
+The four TE landscapes overlap (Fig.~4). SINEs peaked earliest (Kimura 2-parameter distance, K2P, near 20\%), DNA and LTR elements at 5.5 to 7.5\%, and LINEs last (2.5 to 4.5\%, about 17 to 30 million years ago), long before the islands formed.
+\figura{Figure_04.pdf}{\textbf{Figure 4.} TE landscapes by K2P distance. A: one line per species for each class. B: classes stacked for each species. Low distance means recent insertion.}
+
+\subsecao{Some TE families rise again near the present}
+Below K2P 5\%, ten superfamilies rise again toward the present (Fig.~5). TcMar-MITE and Jockey rise in all four species. Gypsy, nMITE, and unclassified DNA elements rise only in the island species. These are trends, because K2P loses resolution at low divergence.
+\figura{Figure_05.pdf}{\textbf{Figure 5.} Hyper-recent window (K2P 0 to 5\%, 1\% bins) for ten superfamilies whose coverage rises again toward the present.}
+
+\subsecao{Satellite DNA turns over fast}
+We found 1,720 satellite DNA families, and 1,221 (71\%) occur in a single species. The 237 families shared by all four species carry the most arrays per family (mean 106, Kruskal-Wallis \textit{p}~<~0.001), mostly at 5 to 10\% divergence (Fig.~6). Pairs and trios share satellites mostly at low divergence (Fig.~7).
+\figura{Figure_06.pdf}{\textbf{Figure 6.} Satellite DNA. A: families by sharing category, with total arrays. B: arrays by mean divergence within homology groups shared by two or more species (species-specific families have no divergence between species).}
+\figura{Figure_07.pdf}{\textbf{Figure 7.} Satellite groups shared by three or two species (dots), with arrays by mean divergence within each group.}
+
+\secao{Conclusions}
+\begin{itemize}
+\item The island genomes share nearly identical repeat content with the mainland \Bjar{}.
+\item All major TE bursts predate island isolation. Isolation did not trigger a genome-wide repeat expansion.
+\item A few TE superfamilies show signs of renewed activity, some only in the island species.
+\item Most satellite families are species-specific, but a small ancestral set shared by all four species carries the most copies.
+\end{itemize}
+\par\vskip0pt
+}\end{minipage}}
+
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay,x=1cm,y=1cm]
+\color{texto}
+
+% ================= CABECALHO =================
+\node[anchor=north west,inner sep=0] (titulo) at (\margem,-2cm) {\usebox{\cabecalho}};
+
+% logo do evento (obrigatorio) e logos das afiliacoes, todos com a mesma altura
+\node[anchor=north east,inner sep=0] (logoevento) at (100cm-\margem,-2cm)
+  {\usebox{\logoevento}};
+\node[anchor=north east,inner sep=0] (butantan) at ([yshift=-0.8cm]logoevento.south east)
+  {\includegraphics[height=\altlogo]{Butantan.pdf}};
+\node[anchor=north east,inner sep=0] (charlotte) at ([xshift=-1.2cm]butantan.north west)
+  {\includegraphics[height=\altlogo]{Charlotte.png}};
+\node[anchor=north east,inner sep=0] (ib) at ([xshift=-1.2cm]charlotte.north west)
+  {\includegraphics[height=\altlogo]{Bio.png}};
+
+\fill[tema] (\margem,-\fiotopo) rectangle (100cm-\margem,-\fiotopo-0.3cm);
+
+% ================= COLUNAS =================
+\node[anchor=north west,inner sep=0] at (\margem,-\fiotopo-1.3cm) {\usebox{\colesq}};
+\node[anchor=north west,inner sep=0] at (\margem+\coluna+\vao,-\fiotopo-1.3cm) {\usebox{\coldir}};
+
+% ================= RODAPE =================
+\fill[tema] (\margem,-\fiorodape cm) rectangle (100cm-\margem,-\fiorodape cm-0.15cm);
+\node[anchor=north west,inner sep=0] at (\margem,-\fiorodape cm-0.7cm) {%
+\begin{minipage}[t]{\coluna}\rodape\justifying\color{texto}
+\textbf{Acknowledgments.} We thank Instituto Butantan, Fundação Butantan, and Instituto de Biociências (USP) for institutional support, NBBC (Instituto Butantan) and UNC Charlotte for computing and sequencing, CAPES for funding (Finance Code 001), and the Sociedade Brasileira de Genética for organizing Genética 2026. Animal use: CEUAIB protocol 8447060524. Genetic heritage access: SISGEN A4A6CA4.
+\end{minipage}};
+\node[anchor=north west,inner sep=0] at (\margem+\coluna+\vao,-\fiorodape cm-0.7cm) {%
+\begin{minipage}[t]{34cm}\fontsize{20}{24}\selectfont\RaggedRight\color{texto}
+\textbf{References.} \textsuperscript{1}Barbo FE et al. 2016. Zootaxa 4097(4): 511-529. doi:10.11646/zootaxa.4097.4.4\par
+\textsuperscript{2}Barbo FE et al. 2022. Systematics and Biodiversity 20(1): 1-25. doi:10.1080/14772000.2021.2017059\par
+\textsuperscript{3}IUCN. 2026. The IUCN Red List of Threatened Species. www.iucnredlist.org\par
+\textsuperscript{4}Almeida DD et al. 2021. Proc. Natl. Acad. Sci. USA 118(20): e2015159118. doi:10.1073/pnas.2015159118
+\end{minipage}};
+\node[anchor=north east,inner sep=0] (sbg) at (100cm-\margem,-\fiorodape cm-0.7cm)
+  {\includegraphics[height=\altlogorodape]{SBG.png}};
+\node[anchor=north east,inner sep=0] at ([xshift=-1.2cm]sbg.north west)
+  {\includegraphics[height=\altlogorodape]{Capes.pdf}};
+
+\end{tikzpicture}
+\end{document}
