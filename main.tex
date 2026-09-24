@@ -136,7 +136,7 @@
 \newsavebox{\colesq}
 \sbox{\colesq}{\begin{minipage}[t]{\coluna}\vbox to\altcoluna{\corpo\justifying\color{texto}
 \secaotopo{Introduction}
-Island populations are small and isolated, so drift and selection can reshape their genomes quickly. Repetitive DNA changes faster than most of the genome: transposable elements (TEs) copy themselves to new sites, and satellite DNA arrays expand and contract. The \Bot{} \textit{jararaca} group is a natural test. The widespread mainland species \Bjar{} has close relatives on continental islands off southeastern Brazil (Fig.~1), cut off by rising sea levels within the last 11,000 to 55,000 years\textsuperscript{2}. \Bins{} is Critically Endangered and \Balc{} is Vulnerable\textsuperscript{3}, and the describers of \Bsaz{} proposed it as Critically Endangered\textsuperscript{1}.
+Island populations are small and isolated, so drift and selection can reshape their genomes quickly. Repetitive DNA changes faster than most of the genome: transposable elements (TEs) copy themselves to new sites, and satellite DNA arrays expand and contract. The \Bot{} \textit{jararaca} group is a natural test. The mainland \Bjar{} has close relatives on continental islands off southeastern Brazil (Fig.~1). \Bins{} is Critically Endangered, \Balc{} is Vulnerable\textsuperscript{1}, and \Bsaz{} is proposed as Critically Endangered\textsuperscript{2}.
 
 \vspace{0.5cm}
 \foto{\dimexpr 1.531\altfoto\relax}{Bothrops_alcatraz.jpg}{A}{alcatraz}{B. alcatraz}{Otavio A. Marques, CC BY 4.0}\hfill
@@ -146,11 +146,11 @@ Island populations are small and isolated, so drift and selection can reshape th
 
 \vspace{0.7cm}
 \colorbox{fundo}{\begin{minipage}{\dimexpr\linewidth-2\fboxsep\relax}\justifying
-\vspace{0.3cm}{\bfseries\color{tema}Objective.} Assemble the first genomes of three island endemics (\Balc{}, \Bins{}, and \Bsaz{}) and compare their transposable elements and satellite DNA with those of the mainland \Bjar{}.\vspace{0.3cm}
+\vspace{0.3cm}{\bfseries\color{tema}Objective.} Assemble the first genomes of three island endemics (\Balc{}, \Bins{}, and \Bsaz{}) and compare the evolution of their transposable elements and satellite DNA to that of the mainland \Bjar{}.\vspace{0.3cm}
 \end{minipage}}
 
 \secao{Methods}
-We sequenced blood DNA from one adult female of each island species, all kept at Instituto Butantan, on an Oxford Nanopore PromethION. We assembled and scaffolded each genome, then ran it and the published \Bjar{} genome\textsuperscript{4} through one annotation pipeline (Fig.~2). EarlGrey annotated the TEs, and TRASH annotated satellite DNA with monomers of 50 to 1,000\,bp.
+We sequenced blood DNA from one adult female per island species, all kept at Laboratório de Ecologia e Evolução (LEEV), Instituto Butantan, on an Oxford Nanopore PromethION. We assembled and scaffolded each genome, then annotated it and the published \Bjar{} genome\textsuperscript{3} in one pipeline (Fig.~2): EarlGrey for TEs and TRASH for satellites (50 to 1,000\,bp monomers).
 \figura{Figura_02.pdf}{\textbf{Figure 2.} Workflow: genome assembly (top), then annotation of transposable elements and satellite DNA in all four genomes (bottom). Created in BioRender (BioRender.com).}
 
 \secao{Results}
@@ -166,11 +166,11 @@ The three assemblies span 1.63 to 1.64\,Gbp, with scaffold N50 of 20.9 to 31.3\,
 \newsavebox{\coldir}
 \sbox{\coldir}{\begin{minipage}[t]{\coluna}\vbox to\altcoluna{\corpo\justifying\color{texto}
 \subsecaotopo{Every TE burst predates the islands}
-The four TE landscapes overlap (Fig.~4). SINEs peaked earliest (Kimura 2-parameter distance, K2P, near 20\%), DNA and LTR elements at 5.5 to 7.5\%, and LINEs last (2.5 to 4.5\%, about 17 to 30 million years ago), long before the islands formed.
+The four TE landscapes overlap (Fig.~4). SINEs peaked earliest (Kimura 2-parameter distance, K2P, near 20\%), DNA and LTR elements at 5.5 to 7.5\%, and LINEs last (2.5 to 4.5\%, about 17 to 30 million years ago). Rising sea levels isolated the islands only 11,000 to 55,000 years ago\textsuperscript{4}.
 \figura{Figure_04.pdf}{\textbf{Figure 4.} TE landscapes by K2P distance. A: one line per species for each class. B: classes stacked for each species. Low distance means recent insertion.}
 
 \subsecao{Some TE families rise again near the present}
-Below K2P 5\%, ten superfamilies rise again toward the present (Fig.~5). TcMar-MITE and Jockey rise in all four species. Gypsy, nMITE, and unclassified DNA elements rise only in the island species. These are trends, because K2P loses resolution at low divergence.
+Below K2P 5\%, ten superfamilies rise toward the present (Fig.~5). TcMar-MITE and Jockey rise in all four species. Gypsy, nMITE, and unclassified DNA elements rise only in the island species. These are trends, since K2P loses resolution near zero.
 \figura{Figure_05.pdf}{\textbf{Figure 5.} Hyper-recent window (K2P 0 to 5\%, 1\% bins) for ten superfamilies whose coverage rises again toward the present.}
 
 \subsecao{Satellite DNA turns over fast}
@@ -221,10 +221,10 @@ We found 1,720 satellite DNA families, and 1,221 (71\%) occur in a single specie
 \end{minipage}};
 \node[anchor=north west,inner sep=0] at (\margem+\coluna+\vao,-\fiorodape cm-0.7cm) {%
 \begin{minipage}[t]{34cm}\fontsize{20}{24}\selectfont\RaggedRight\color{texto}
-\textbf{References.} \textsuperscript{1}Barbo FE et al. 2016. Zootaxa 4097(4): 511-529. doi:10.11646/zootaxa.4097.4.4\par
-\textsuperscript{2}Barbo FE et al. 2022. Systematics and Biodiversity 20(1): 1-25. doi:10.1080/14772000.2021.2017059\par
-\textsuperscript{3}IUCN. 2026. The IUCN Red List of Threatened Species. www.iucnredlist.org\par
-\textsuperscript{4}Almeida DD et al. 2021. Proc. Natl. Acad. Sci. USA 118(20): e2015159118. doi:10.1073/pnas.2015159118
+\textbf{References.} \textsuperscript{1}IUCN. 2026. The IUCN Red List of Threatened Species. www.iucnredlist.org\par
+\textsuperscript{2}Barbo FE et al. 2016. Zootaxa 4097(4): 511-529. doi:10.11646/zootaxa.4097.4.4\par
+\textsuperscript{3}Almeida DD et al. 2021. Proc. Natl. Acad. Sci. USA 118(20): e2015159118. doi:10.1073/pnas.2015159118\par
+\textsuperscript{4}Barbo FE et al. 2022. Systematics and Biodiversity 20(1): 1-25. doi:10.1080/14772000.2021.2017059
 \end{minipage}};
 \node[anchor=north east,inner sep=0] (sbg) at (100cm-\margem,-\fiorodape cm-0.7cm)
   {\includegraphics[height=\altlogorodape]{SBG.png}};
