@@ -42,7 +42,7 @@ The poster uses the TeX Gyre Heros font and the `fontawesome5` package, both inc
 
 Our text and figures are available under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license (CC BY-NC-SA 4.0). See `LICENSE`.
 
-The license does not cover material owned by others. The logos belong to their organizations. The photographs in Figure 1 keep their own terms: *Bothrops alcatraz* by Otavio A. Marques, licensed under CC BY 4.0 (https://commons.wikimedia.org/wiki/File:Bohtrops_alcatraz_OAVM14.jpg); *B. insularis* by Igor Salles-Oliveira; and *B. sazimai* by Ricardo Sawaya. Figure 2 was created in BioRender (BioRender.com) and follows the BioRender terms of use.
+The license does not cover material owned by others. The logos belong to their organizations. The photographs in Figure 1 keep their own terms: *Bothrops alcatraz* by Otavio A. Marques, licensed under CC BY 4.0 (https://commons.wikimedia.org/wiki/File:Bohtrops_alcatraz_OAVM14.jpg); *B. insularis* by Igor Salles-Oliveira; and *B. sazimai* by Ricardo J. Sawaya, taken from ((o))eco (https://oeco.org.br/noticias/nova-jararaca-do-pedaco-vive-numa-ilha/). Figure 2 was created in BioRender (BioRender.com) and follows the BioRender terms of use.
 
 ## Contact
 
